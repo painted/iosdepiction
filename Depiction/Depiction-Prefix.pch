@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+// import parse SDK so we don;t have to add it at the tip of every file
+    #import <Parse/Parse.h>
+
 #endif

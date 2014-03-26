@@ -12,10 +12,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    /*self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];*/
+    
+    // tell the Parse SDK which apllication ID to use
+    
+    [Parse setApplicationId:@"QtO3nAD9vMFLBZDOMKG62D2KTpZwatmMslTRXgwf" clientKey:@"AXtRGyQVMFkOCB0t7W4ZRhJb8ox5Kx9qnaLgiUnf"];
+    
+    
+    
     return YES;
 }
 
