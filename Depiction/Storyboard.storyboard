@@ -29,6 +29,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="166-YT-hK3" kind="push" identifier="ShowMessages" id="la3-2f-CMe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -41,6 +44,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReH-pS-Hre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="529" y="7"/>
+        </scene>
+        <!--Messages Table View Controller-->
+        <scene sceneID="8Fg-ge-Pkz">
+            <objects>
+                <tableViewController id="166-YT-hK3" customClass="PTDMessagesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rec-Re-Lin">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Hot-Ax-vYF">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hot-Ax-vYF" id="Wvz-l7-KmI">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="166-YT-hK3" id="kqf-PQ-MTF"/>
+                            <outlet property="delegate" destination="166-YT-hK3" id="cu3-53-agF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lXu-K2-fao"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WLA-xo-OSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cow-bm-ids">
@@ -58,6 +90,7 @@
             <point key="canvasLocation" x="-5" y="7"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.61416156332232619" blue="0.008133766931059383" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

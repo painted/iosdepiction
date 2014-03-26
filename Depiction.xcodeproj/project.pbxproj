@@ -20,6 +20,7 @@
 		5476D96218E2E4F300EF2FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5476D96018E2E4F300EF2FE8 /* InfoPlist.strings */; };
 		5476D96418E2E4F300EF2FE8 /* DepictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5476D96318E2E4F300EF2FE8 /* DepictionTests.m */; };
 		548E4C7718E2F8D4001C53C0 /* PTDFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548E4C7618E2F8D4001C53C0 /* PTDFriendsTableViewController.m */; };
+		548E4C7A18E3342B001C53C0 /* PTDMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548E4C7918E3342B001C53C0 /* PTDMessagesTableViewController.m */; };
 		54A14F7918E2F404007EE3D8 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54A14F7818E2F404007EE3D8 /* Storyboard.storyboard */; };
 		7EF006B29C884F4A903F6471 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 036CA61BC5504E0EB6EFF6D7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,8 @@
 		5476D96318E2E4F300EF2FE8 /* DepictionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepictionTests.m; sourceTree = "<group>"; };
 		548E4C7518E2F8D4001C53C0 /* PTDFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDFriendsTableViewController.h; sourceTree = "<group>"; };
 		548E4C7618E2F8D4001C53C0 /* PTDFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDFriendsTableViewController.m; sourceTree = "<group>"; };
+		548E4C7818E3342B001C53C0 /* PTDMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDMessagesTableViewController.h; sourceTree = "<group>"; };
+		548E4C7918E3342B001C53C0 /* PTDMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDMessagesTableViewController.m; sourceTree = "<group>"; };
 		54A14F7818E2F404007EE3D8 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CA95CFE9ED6E4238BFB4B520 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +165,8 @@
 			children = (
 				548E4C7518E2F8D4001C53C0 /* PTDFriendsTableViewController.h */,
 				548E4C7618E2F8D4001C53C0 /* PTDFriendsTableViewController.m */,
+				548E4C7818E3342B001C53C0 /* PTDMessagesTableViewController.h */,
+				548E4C7918E3342B001C53C0 /* PTDMessagesTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548E4C7A18E3342B001C53C0 /* PTDMessagesTableViewController.m in Sources */,
 				548E4C7718E2F8D4001C53C0 /* PTDFriendsTableViewController.m in Sources */,
 				5476D94B18E2E4F300EF2FE8 /* main.m in Sources */,
 				5476D94F18E2E4F300EF2FE8 /* PTDAppDelegate.m in Sources */,

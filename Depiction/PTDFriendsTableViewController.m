@@ -8,6 +8,12 @@
 
 #import "PTDFriendsTableViewController.h"
 
+// impor the header file for the messages controller
+// we need this in order to set the 'selectedUser' property
+// in prepareForSegue' method
+
+#import "PTDMessagesTableViewController.h"
+
 @interface PTDFriendsTableViewController ()
 
 @end
@@ -214,7 +220,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -222,7 +228,52 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    // confirm that we are performing the correct segue
+    // use 'isEqualtoString' to companre text
+    // ensure that your storyboard contains the same identifier
+    // for segue (case sensitive)
+    
+    if ([segue.identifier isEqualToString:@"ShowMessages"]){
+        
+        // get a reference to the messages table controller
+        // that is about to be pushed onto the screen
+
+        PTDMessagesTableViewController *messagesController = [segue destinationViewController];
+        
+        // 'fixing ' the class of the sender object to UITableViewCell
+        // converting  'id', which means any class, to a specific class
+        
+        UITableViewCell *cell = sender;
+        
+        // ask the tableview for the indexpath for the selected cell
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        
+        // get the user at the conrrect index of the array (the row that was selected)
+        PFUser *user = [self.friends objectAtIndex:indexPath.row];
+        
+        // set the user on the new view controller as the user that has been selected
+        messagesController.selectedUser = user;
+        
+        
+    }
 }
-*/
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
