@@ -59,6 +59,21 @@
                 // output a description of the error to the console
                 NSLog(@"Error logging in: %@", [error localizedDescription]);
                 
+                // get a reference to a string representeing the title of the alert
+                NSString *title = NSLocalizedString(@"Error", nil);
+                
+                // get a string for the message, using the error message
+                NSString *message = [NSString stringWithFormat:@"Error logging in: %@", [error localizedDescription]];
+                
+                // create a string for the cancel button title
+                NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+            
+                //create an alert view containing the text that we've defined above.
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles: nil];
+                
+                // put the alert view on screen
+                [alertView show];
+                
             }
             
             
@@ -86,6 +101,11 @@
     PFUser *currentUser = [PFUser currentUser];
     
     // we do that by filtering out our username
+    // The server i.e. parse will interate through
+    // each item in the database and check that the 'username'
+    // field is not equal to the value that we're giving below
+    // i.e. the current user's username.
+    
     [query whereKey:@"username" notEqualTo:currentUser.username];
     
     
@@ -143,6 +163,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    // get a reference to the user for this row in the table
+    PFUser *user = [self.friends objectAtIndex:indexPath.row];
+    
+    // set the label for the cell as the user's username
+    // this is an NSString property and so can be used
+    // with the UILabel 'text' property
+    cell.textLabel.text = user.username;
     
     return cell;
 }
