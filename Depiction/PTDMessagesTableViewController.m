@@ -12,6 +12,9 @@
 // extrenal to our project (we didn't write it)
 # import <AFNetworking/UIImageView+AFNetworking.h>
 
+// import a category to shrink the large image this is now part of the project so use ""
+#import "UIImage+Resize.h"
+
 @interface PTDMessagesTableViewController ()
 
 @end
@@ -266,4 +269,146 @@
 }
 */
 
+#pragma mark - Actions
+
+- (IBAction)cameraButtonPressed:(UIBarButtonItem*)sender {
+    
+    NSLog(@"camera pressed!!");
+ 
+    // create an instance of the camera view controller
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    // set the type of media we want to receive as a camera image
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    // or set the type of media we want to receive as a photo from library
+    //picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    
+    
+    // set the delegate - we want to do this because we want to
+    // get an image back or nothing at all (cancel)
+    // set the delegate to ourselves as we want to be told if it happened or not.
+    
+    picker.delegate = self;
+    
+    // present the view controller
+    [self presentViewController:picker animated:YES completion:nil];
+
+    
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    NSLog(@"image taken");
+
+
+    /*
+     [info objectForKey:UIImagePickerControllerOriginalImage];
+     
+     is equilavent to:
+     
+     info[UIImagePickerControllerOriginalImage];
+     
+     */
+   
+    // get a reference to image by asking the dictionary
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // create a new message. We must ensure that we use exactly the same
+    // class name as used in Parse
+    PFObject *newMessage = [PFObject objectWithClassName:@"Message"];
+    
+    // ensure that the logged in user is the sender
+    newMessage [@"sender"] = [PFUser currentUser];
+    
+    // set a recipient accordingly
+    newMessage [@"recipient"] = self.selectedUser;
+    
+    // set the ACL which is the security settings Access Control
+    
+    PFACL *accessControl = [PFACL ACL];
+    
+    // set public read access to no
+    [accessControl setPublicReadAccess:NO];
+    
+    // set read access for the current user
+    [accessControl setReadAccess:YES forUser:[PFUser currentUser]];
+    
+    // set write access for the current user
+    [accessControl setWriteAccess:YES forUser:[PFUser currentUser]];
+    
+    // set the read access for the recipient
+    [accessControl setReadAccess:YES forUser:self.selectedUser];
+    
+    // assign the access control to the new message
+    newMessage.ACL = accessControl;
+    
+    // 1) Resize the image
+    // 2) JPEG compress the small image at 60%
+    NSData *imageData = UIImageJPEGRepresentation([image resizedImage:CGSizeMake(640.0, 1136.0)], 0.6f);
+    
+    // create a PFFile instance using the JPEG data
+    PFFile *imageFile = [PFFile fileWithName:@"image.jpg" data:imageData];
+    
+    
+    newMessage[@"image"] = imageFile;
+    
+    // we can now upload this to the Parse server
+    
+    [newMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     
+        if (error) {
+            
+            NSLog(@"Error Sending message; %@", [error localizedDescription]);
+            
+        }
+
+        else
+        {
+            
+            [self.messages insertObject:newMessage atIndex:0];
+            
+            // insert this message into the tableview
+            // .....  with animation!!!
+            
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+        }
+    }];
+    
+    
+    //we are responsible for getting the camera off the screen
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+
+    NSLog(@"Image Cancelled");
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
+}
+    
+    
+
+
+
+
+
+
+
+
 @end
+
+
+
+
+

@@ -19,6 +19,9 @@
 		5476D95A18E2E4F300EF2FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476D94218E2E4F300EF2FE8 /* UIKit.framework */; };
 		5476D96218E2E4F300EF2FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5476D96018E2E4F300EF2FE8 /* InfoPlist.strings */; };
 		5476D96418E2E4F300EF2FE8 /* DepictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5476D96318E2E4F300EF2FE8 /* DepictionTests.m */; };
+		547D522018E48DFF00ECDA42 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D521B18E48DFF00ECDA42 /* UIColor+Theme.m */; };
+		547D522118E48DFF00ECDA42 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D521D18E48DFF00ECDA42 /* UIFont+Theme.m */; };
+		547D522218E48DFF00ECDA42 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 547D521F18E48DFF00ECDA42 /* UIImage+Resize.m */; };
 		548E4C7718E2F8D4001C53C0 /* PTDFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548E4C7618E2F8D4001C53C0 /* PTDFriendsTableViewController.m */; };
 		548E4C7A18E3342B001C53C0 /* PTDMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548E4C7918E3342B001C53C0 /* PTDMessagesTableViewController.m */; };
 		54A14F7918E2F404007EE3D8 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54A14F7818E2F404007EE3D8 /* Storyboard.storyboard */; };
@@ -53,6 +56,12 @@
 		5476D95F18E2E4F300EF2FE8 /* DepictionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DepictionTests-Info.plist"; sourceTree = "<group>"; };
 		5476D96118E2E4F300EF2FE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5476D96318E2E4F300EF2FE8 /* DepictionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepictionTests.m; sourceTree = "<group>"; };
+		547D521A18E48DFF00ECDA42 /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Theme.h"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIColor+Theme.h"; sourceTree = "<group>"; };
+		547D521B18E48DFF00ECDA42 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Theme.m"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIColor+Theme.m"; sourceTree = "<group>"; };
+		547D521C18E48DFF00ECDA42 /* UIFont+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Theme.h"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIFont+Theme.h"; sourceTree = "<group>"; };
+		547D521D18E48DFF00ECDA42 /* UIFont+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Theme.m"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIFont+Theme.m"; sourceTree = "<group>"; };
+		547D521E18E48DFF00ECDA42 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIImage+Resize.h"; sourceTree = "<group>"; };
+		547D521F18E48DFF00ECDA42 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../../../../Downloads/iOS-master/depiction_categories/Categories/UIImage+Resize.m"; sourceTree = "<group>"; };
 		548E4C7518E2F8D4001C53C0 /* PTDFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDFriendsTableViewController.h; sourceTree = "<group>"; };
 		548E4C7618E2F8D4001C53C0 /* PTDFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDFriendsTableViewController.m; sourceTree = "<group>"; };
 		548E4C7818E3342B001C53C0 /* PTDMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDMessagesTableViewController.h; sourceTree = "<group>"; };
@@ -121,6 +130,7 @@
 		5476D94418E2E4F300EF2FE8 /* Depiction */ = {
 			isa = PBXGroup;
 			children = (
+				547D521918E48DE300ECDA42 /* Categories */,
 				548E4C7418E2F833001C53C0 /* Controllers */,
 				5476D94D18E2E4F300EF2FE8 /* PTDAppDelegate.h */,
 				5476D94E18E2E4F300EF2FE8 /* PTDAppDelegate.m */,
@@ -158,6 +168,19 @@
 				5476D96018E2E4F300EF2FE8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		547D521918E48DE300ECDA42 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				547D521A18E48DFF00ECDA42 /* UIColor+Theme.h */,
+				547D521B18E48DFF00ECDA42 /* UIColor+Theme.m */,
+				547D521C18E48DFF00ECDA42 /* UIFont+Theme.h */,
+				547D521D18E48DFF00ECDA42 /* UIFont+Theme.m */,
+				547D521E18E48DFF00ECDA42 /* UIImage+Resize.h */,
+				547D521F18E48DFF00ECDA42 /* UIImage+Resize.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		548E4C7418E2F833001C53C0 /* Controllers */ = {
@@ -307,9 +330,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				548E4C7A18E3342B001C53C0 /* PTDMessagesTableViewController.m in Sources */,
+				547D522018E48DFF00ECDA42 /* UIColor+Theme.m in Sources */,
+				547D522118E48DFF00ECDA42 /* UIFont+Theme.m in Sources */,
 				548E4C7718E2F8D4001C53C0 /* PTDFriendsTableViewController.m in Sources */,
 				5476D94B18E2E4F300EF2FE8 /* main.m in Sources */,
 				5476D94F18E2E4F300EF2FE8 /* PTDAppDelegate.m in Sources */,
+				547D522218E48DFF00ECDA42 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

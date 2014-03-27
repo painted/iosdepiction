@@ -106,7 +106,14 @@
                             <outlet property="delegate" destination="166-YT-hK3" id="cu3-53-agF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lXu-K2-fao"/>
+                    <navigationItem key="navigationItem" id="lXu-K2-fao">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="5hz-9D-i1J">
+                            <color key="tintColor" red="0.34621601839999999" green="0.59470533290000005" blue="0.31755771929999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="166-YT-hK3" id="upT-qc-0fm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLA-xo-OSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

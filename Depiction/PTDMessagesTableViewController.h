@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PTDMessagesTableViewController : UITableViewController
+
+// adopt the two necessary protocols to use the camera
+@interface PTDMessagesTableViewController : UITableViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 // we need to store our messages to and from our selected user.
 // it is mutable as the app can now add more messages (items)
