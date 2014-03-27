@@ -221,6 +221,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Painted Ltd.";
 				TargetAttributes = {
+					5476D93A18E2E4F300EF2FE8 = {
+						DevelopmentTeam = 9GWTYJ9BTN;
+					};
 					5476D95518E2E4F300EF2FE8 = {
 						TestTargetID = 5476D93A18E2E4F300EF2FE8;
 					};
@@ -426,6 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Depiction/Depiction-Prefix.pch";
 				INFOPLIST_FILE = "Depiction/Depiction-Info.plist";
@@ -441,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Depiction/Depiction-Prefix.pch";
 				INFOPLIST_FILE = "Depiction/Depiction-Info.plist";

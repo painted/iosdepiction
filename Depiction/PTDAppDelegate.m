@@ -21,9 +21,24 @@
     
     [Parse setApplicationId:@"QtO3nAD9vMFLBZDOMKG62D2KTpZwatmMslTRXgwf" clientKey:@"AXtRGyQVMFkOCB0t7W4ZRhJb8ox5Kx9qnaLgiUnf"];
     
+    [self setTheme];
+    
     
     
     return YES;
+}
+
+- (void)setTheme {
+    
+    [self.window setTintColor:[UIColor greenColor]];
+    
+    [[UIRefreshControl appearance] setTintColor:[UIColor greenColor]];
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -53,4 +68,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
+
+
+
 @end
+
+
+
+
+

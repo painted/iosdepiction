@@ -37,6 +37,90 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // go and fetch the messages
+    [self loadData];
+    
+}
+
+// we will be using thismethod to retreive messages
+// from the server
+- (void) loadData{
+    
+    // Give me all the messages where:
+    //I am the sender and they are the recipient
+    // or
+    // They are the sender and I am the recipient
+    
+    // check out parse.com/docs/ios_guide#queries-basic/iOS this has
+    // told us that to query a custom class use this:
+    PFQuery *senderQuery = [PFQuery queryWithClassName:@"Message"];
+    
+    // I am the sender
+    [senderQuery whereKey:@"sender" equalTo:[PFUser currentUser]];
+    
+    // and they are the recipient as selectedUser was set in message controller
+    // you can use self.selectedUser
+    [senderQuery whereKey:@"recipient" equalTo:self.selectedUser];
+    
+    
+    PFQuery *recipientQuery = [PFQuery queryWithClassName:@"Message"];
+    
+    // The sender is the selecteduser
+    [recipientQuery whereKey:@"sender" equalTo:self.selectedUser];
+    
+    // I am the recipient
+    [recipientQuery whereKey:@"recipient" equalTo:[PFUser currentUser]];
+    
+    /* 
+     to make an array we can use [[NSArray alloc] initWithObjects:...]
+     To save time apple has added a shorthand method
+     @[object1,object2....]
+     */
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[senderQuery,recipientQuery]];
+
+    // show the latest method on the top
+    [query orderByDescending:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        // we must create a mutable array (NSMutableArray)
+        // for the NSArraty that we've been given by Parse
+        // otherwise we cannot add more messages to it
+        if (!error){
+            
+            self.messages = [objects mutableCopy];
+            
+            //cause the table to ask us for number of sections
+            //number of rows in each section how to display the cell
+            [self.tableView reloadData];
+            
+        }
+  
+        else    {             // output a description of the error to the console
+            NSLog(@"Error loading messages: %@", [error localizedDescription]);
+        
+        // get a reference to a string representeing the title of the alert
+        NSString *title = NSLocalizedString(@"Error", nil);
+        
+        // get a string for the message, using the error message
+        NSString *message = [NSString stringWithFormat:@"Error logging in: %@", [error localizedDescription]];
+        
+        // create a string for the cancel button title
+        NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+        
+        //create an alert view containing the text that we've defined above.
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles: nil];
+        
+        // put the alert view on screen
+        [alertView show];}
+   
+
+        
+    }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,28 +133,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.messages count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    // set the label on the cell so we can verify that it's working
+    // the following line cell.text.... will be commented out 
+    cell.textLabel.text = @"message!!";
+    
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

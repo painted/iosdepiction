@@ -114,6 +114,9 @@
     
     [query whereKey:@"username" notEqualTo:currentUser.username];
     
+    // if we wnat to we can order by any key field in the database.
+    // i.e. any field in the parse database.
+    [query orderByDescending:@"username"];
     
     // go to the Parse web server and return a list of users matching our
     // query

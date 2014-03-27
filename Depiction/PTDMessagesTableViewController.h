@@ -10,6 +10,9 @@
 
 @interface PTDMessagesTableViewController : UITableViewController
 
+// we need to store our messages to and from our selected user.
+// it is mutable as the app can now add more messages (items)
+@property (nonatomic, strong) NSMutableArray *messages;
 
 // declare a property to keep a reference to the user
 // that has been pressed on
