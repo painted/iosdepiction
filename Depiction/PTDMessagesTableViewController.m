@@ -8,6 +8,10 @@
 
 #import "PTDMessagesTableViewController.h"
 
+// import a pod we use angled brackets because it is
+// extrenal to our project (we didn't write it)
+# import <AFNetworking/UIImageView+AFNetworking.h>
+
 @interface PTDMessagesTableViewController ()
 
 @end
@@ -152,7 +156,62 @@
     
     // set the label on the cell so we can verify that it's working
     // the following line cell.text.... will be commented out 
-    cell.textLabel.text = @"message!!";
+    // cell.textLabel.text = @"message!!";
+    
+    //get a reference to the message object represented by
+    // this cell
+    //
+    // self.messages[indePath.row]
+    //
+    // is equivalent to:
+    //
+    //[self.messages objectAtIndex:indexPath.row]
+    //
+    PFObject *message = self.messages [indexPath.row];
+    
+    // get a reference to the image view in the cell
+    
+    UIImageView *imageView= (UIImageView *)[cell viewWithTag:1];
+    
+    // get a reference to the label in the label in the cell
+    UILabel *label= (UILabel *)[cell viewWithTag:2];
+    
+    /* get a reference to the image file so we can
+    use its URL to download the image
+     [message objectForKey:@"image"]
+     can be shortened to 
+     message [@"image"]
+     */
+    
+    PFFile *file= [message objectForKey:@"image"];
+    
+    // convert the file URL (which is an NSString to
+    // an NSURL which is used when loading from the web
+    
+    NSURL *imageURL = [NSURL URLWithString:file.url];
+    
+    // set the image - this will go off and download it for us
+    [imageView setImageWithURL:imageURL];
+    
+    // get a reference to the sender  of the message
+    // this is a PFUser object
+    PFUser *sender = message [@"sender"];
+    
+    // work out if the sender is the same as current user or not
+    
+    if ([sender.objectId isEqualToString:[PFUser currentUser].objectId]){
+        
+        // it is sent by me
+        label.text = NSLocalizedString(@"Sent by me",nil);
+        
+    }
+    else{
+        
+        // it is sent by the selected user
+        label.text = [NSString stringWithFormat:NSLocalizedString(@"Sent by %@", nil),self.selectedUser.username];
+        
+    }
+    
     
     return cell;
 }
