@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		546B0DFE18E5897D0083A1C1 /* PTDLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546B0DFD18E5897D0083A1C1 /* PTDLoginTableViewController.m */; };
+		546B0E0118E5D1080083A1C1 /* PTDFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546B0E0018E5D1080083A1C1 /* PTDFullScreenViewController.m */; };
 		5476D93F18E2E4F300EF2FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476D93E18E2E4F300EF2FE8 /* Foundation.framework */; };
 		5476D94118E2E4F300EF2FE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476D94018E2E4F300EF2FE8 /* CoreGraphics.framework */; };
 		5476D94318E2E4F300EF2FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476D94218E2E4F300EF2FE8 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		036CA61BC5504E0EB6EFF6D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		546B0DFC18E5897D0083A1C1 /* PTDLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDLoginTableViewController.h; sourceTree = "<group>"; };
 		546B0DFD18E5897D0083A1C1 /* PTDLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDLoginTableViewController.m; sourceTree = "<group>"; };
+		546B0DFF18E5D1080083A1C1 /* PTDFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDFullScreenViewController.h; sourceTree = "<group>"; };
+		546B0E0018E5D1080083A1C1 /* PTDFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDFullScreenViewController.m; sourceTree = "<group>"; };
 		5476D93B18E2E4F300EF2FE8 /* Depiction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Depiction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5476D93E18E2E4F300EF2FE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5476D94018E2E4F300EF2FE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,8 @@
 				548E4C7918E3342B001C53C0 /* PTDMessagesTableViewController.m */,
 				546B0DFC18E5897D0083A1C1 /* PTDLoginTableViewController.h */,
 				546B0DFD18E5897D0083A1C1 /* PTDLoginTableViewController.m */,
+				546B0DFF18E5D1080083A1C1 /* PTDFullScreenViewController.h */,
+				546B0E0018E5D1080083A1C1 /* PTDFullScreenViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			files = (
 				546B0DFE18E5897D0083A1C1 /* PTDLoginTableViewController.m in Sources */,
 				548E4C7A18E3342B001C53C0 /* PTDMessagesTableViewController.m in Sources */,
+				546B0E0118E5D1080083A1C1 /* PTDFullScreenViewController.m in Sources */,
 				547D522018E48DFF00ECDA42 /* UIColor+Theme.m in Sources */,
 				547D522118E48DFF00ECDA42 /* UIFont+Theme.m in Sources */,
 				548E4C7718E2F8D4001C53C0 /* PTDFriendsTableViewController.m in Sources */,

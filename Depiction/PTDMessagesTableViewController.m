@@ -15,6 +15,11 @@
 // import a category to shrink the large image this is now part of the project so use ""
 #import "UIImage+Resize.h"
 
+// import the full screen controller so we can set
+// it's image property
+#import "PTDFullScreenViewController.h"
+
+
 @interface PTDMessagesTableViewController ()
 
 @end
@@ -258,7 +263,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -266,8 +271,30 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+
+    if ([segue.identifier isEqualToString:@"FullScreen"]) {
+        
+        // set the image property of the full screen view controller
+        
+        PTDFullScreenViewController *fullScreen = [segue destinationViewController];
+        
+        // cast the 'sender' variable to UITableViewCell class
+        // we know that it is the cell that is triggering segue
+        UITableViewCell *cell= sender;
+        
+        UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+        
+        // pass the displayed image to the full screen controller
+        fullScreen.image = imageView.image;
+        
+        
+    }
+    
+
+
+
 }
-*/
+
 
 #pragma mark - Actions
 

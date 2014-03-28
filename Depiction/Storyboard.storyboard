@@ -214,6 +214,9 @@
                                         <constraint firstAttribute="bottom" secondItem="j13-gu-A77" secondAttribute="bottom" constant="50" id="yep-bj-jdc"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yKd-vJ-q5K" kind="push" identifier="FullScreen" id="DvA-Md-Pf0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -233,6 +236,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLA-xo-OSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="986" y="7"/>
+        </scene>
+        <!--Full Screen View Controller-->
+        <scene sceneID="20A-Js-ZOj">
+            <objects>
+                <viewController id="yKd-vJ-q5K" customClass="PTDFullScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uu9-KO-jDn"/>
+                        <viewControllerLayoutGuide type="bottom" id="GM9-Pq-S55"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bAi-XS-EXm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZn-VJ-Q4g">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="l3B-W1-gYE"/>
+                    <connections>
+                        <outlet property="imageView" destination="cZn-VJ-Q4g" id="1Tc-Pr-icJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OH5-Ta-kTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432" y="7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cow-bm-ids">
