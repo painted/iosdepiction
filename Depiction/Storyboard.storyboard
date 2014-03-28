@@ -56,6 +56,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9em-LX-mwZ">
+                            <rect key="frame" x="0.0" y="289" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                            <state key="normal" title="Not Registered?">
+                                <color key="titleColor" red="0.34621601839999999" green="0.59470533290000005" blue="0.31755771929999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="modeButtonPressed:" destination="goa-Gj-3Qo" eventType="touchUpInside" id="YGz-lm-cYB"/>
+                            </connections>
+                        </button>
                         <sections>
                             <tableViewSection id="zcp-5g-xfb">
                                 <cells>
@@ -91,6 +103,22 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MF6-GK-xTG">
+                                        <rect key="frame" x="0.0" y="219" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MF6-GK-xTG" id="3zN-aq-drO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-6r-SAq">
+                                                    <rect key="frame" x="20" y="15" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -107,6 +135,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="pfk-6r-SAq" id="23x-3I-sgM"/>
+                        <outlet property="modeButton" destination="9em-LX-mwZ" id="hcj-PK-ye4"/>
                         <outlet property="passwordTextField" destination="l4S-I2-WzA" id="7V1-3V-4V4"/>
                         <outlet property="usernameTextField" destination="tRS-UF-iU8" id="eYv-aF-jFA"/>
                     </connections>

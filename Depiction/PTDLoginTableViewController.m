@@ -35,6 +35,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // set the default mode when this screen appears (I've picked login)
+    self.mode = PTDLoginModeLogin;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,8 +58,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 2;
+    // Check to see if we are logging in or registering.
+    
+    if (self.mode == PTDLoginModeLogin) {
+        return 2;
+    }
+    
+    else {
+        return 3;
+        
+    }
 }
 
 /*
@@ -129,9 +142,14 @@
     
     NSString *password = self.passwordTextField.text;
     
+    NSString *confirmPassword = self.confirmPasswordTextField.text;
     
     
-    // login using contents of the text fields instead of hard-coding
+    // check if we are supposed to be logging in or registering
+    
+    if (self.mode == PTDLoginModeLogin) {
+        
+            // login using contents of the text fields instead of hard-coding
     // username
     // password
     //
@@ -171,17 +189,112 @@
         
         
     }];
+
+        
+    }
+    
+    else{
+        
+        // register
+        
+        if ([password isEqualToString:confirmPassword]) {
+            
+            // passwords match, register the user
+            
+            // create a new user
+            PFUser *user = [PFUser user];
+            
+            //assign its username property as the contents
+            // of the username text field
+            user.username = username;
+            
+            // likewise for the password
+            user.password = password;
+            
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (!error) {
+                    
+                    // sign up is successful, this view controller can now be dismissed
+                   [self.delegate loginTableViewControllerDidLogin:self];
+                    
+                    
+                }
+                else
+                {
+                    // sign up is not succesful, show an alert to the user
+                    
+                    
+                }
+                
+                
+            } ];
+            
+            
+        } else {
+            
+            // passwords don't match, show alert to the user.  Set up a UIAlertView
+            
+        }
+        
+        
+    }
+    
     
     
     
 }
 
 
+// add a method that will be triggered when 'Already Registered'
+// button is pressed.
+// this will toggle the mode between 'login' and 'register'
+
+-(IBAction)modeButtonPressed:(UIButton*)sender {
+
+    NSLog(@"mode button pressed");
+    
+    
+    // check which mode we are in when the button is pressed
+    if (self.mode == PTDLoginModeLogin) {
+        
+        // change to the opposite mode
+        self.mode = PTDLoginModeRegister;
+        
+        // set title for register mode
+        self.title = NSLocalizedString(@"Register", nil);
+        
+        // set tittle on the button according to the current mode
+        [self.modeButton setTitle:NSLocalizedString(@"Already Registered?", nil) forState:UIControlStateNormal];
+        
+        // create an index path represeneting the row that will animate in
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        
+        // perform the animation
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        
+        
+    } else {
+        self.mode = PTDLoginModeLogin;
+        
+        // set title for register mode
+        self.title = NSLocalizedString(@"Login  ", nil);
+        
+        // set tittle on the button according to the current mode
+        [self.modeButton setTitle:NSLocalizedString(@"Not Registered?", nil) forState:UIControlStateNormal];
+        
+        // create an index path represeneting the row that will animate out
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        
+        // perform the animation
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        
+        
+    }
+    
 
 
-
-
-
+}
 
 @end
 
