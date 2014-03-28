@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PTDFriendsTableViewController : UITableViewController
+
+// import the login controller's header file
+// we must do this to adopt the protocol
+#import "PTDLoginTableViewController.h"
+
+
+@interface PTDFriendsTableViewController : UITableViewController <PTDLoginTableViewControllerDelegate>
 
 // add an array property to store the friends list
 @property NSArray *friends;

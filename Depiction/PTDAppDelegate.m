@@ -17,9 +17,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];*/
     
-    // tell the Parse SDK which apllication ID to use
+    // tell the Parse SDK which application ID to use
     
     [Parse setApplicationId:@"QtO3nAD9vMFLBZDOMKG62D2KTpZwatmMslTRXgwf" clientKey:@"AXtRGyQVMFkOCB0t7W4ZRhJb8ox5Kx9qnaLgiUnf"];
+    
+    // trying my own Parse SDK database
+    //[Parse setApplicationId:@"oeFMnX1pAHsAz2CH5y74L68AKk8oybpISZaLdbi1" clientKey:@"LZAg6MAtvvZDuh1wdhqLZ6HKEV5FI07x459ripe1"];
     
     [self setTheme];
     

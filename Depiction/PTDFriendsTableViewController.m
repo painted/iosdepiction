@@ -51,39 +51,45 @@
         // there is no current user....
         // present a login dialog?
         
-        [PFUser logInWithUsernameInBackground:@"awbAllen" password:@"st33r" block:^(PFUser *user, NSError *error) {
-            
-            if (!error) {
-                // if no error, we can assume that we are now logged in
-                
-                // we can go ahead and load data
-                [self loadData];
-                
-            }
-            else {
-                
-                // output a description of the error to the console
-                NSLog(@"Error logging in: %@", [error localizedDescription]);
-                
-                // get a reference to a string representeing the title of the alert
-                NSString *title = NSLocalizedString(@"Error", nil);
-                
-                // get a string for the message, using the error message
-                NSString *message = [NSString stringWithFormat:@"Error logging in: %@", [error localizedDescription]];
-                
-                // create a string for the cancel button title
-                NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
-            
-                //create an alert view containing the text that we've defined above.
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles: nil];
-                
-                // put the alert view on screen
-                [alertView show];
-                
-            }
-            
-            
-        }];
+        [self performSegueWithIdentifier:@"ShowLogin" sender:nil];
+        
+        
+        /*  This will no longer be used as this will now be done on the login screen
+         [PFUser logInWithUsernameInBackground:@"username" password:@"password" block:^(PFUser *user, NSError *error) {
+         
+         if (!error) {
+         // if no error, we can assume that we are now logged in
+         
+         // we can go ahead and load data
+         [self loadData];
+         
+         }
+         else {
+         
+         // output a description of the error to the console
+         NSLog(@"Error logging in: %@", [error localizedDescription]);
+         
+         // get a reference to a string representeing the title of the alert
+         NSString *title = NSLocalizedString(@"Error", nil);
+         
+         // get a string for the message, using the error message
+         NSString *message = [NSString stringWithFormat:@"Error logging in: %@", [error localizedDescription]];
+         
+         // create a string for the cancel button title
+         NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+         
+         //create an alert view containing the text that we've defined above.
+         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles: nil];
+         
+         // put the alert view on screen
+         [alertView show];
+         
+         }
+         
+         
+         }];
+         */
+        
         
     }
     
@@ -261,7 +267,34 @@
         
         
     }
+    
+    else if ([segue.identifier isEqualToString:@"ShowLogin"]){
+        
+        // in this case (you can see in the storyboard) segue is
+        // connected to a navigation controller
+        UINavigationController *navController = [segue destinationViewController];
+        
+        //get a reference to the login controller, which is just the
+        // first (top) view controller in the navigation stack
+        PTDLoginTableViewController *loginController = (PTDLoginTableViewController *)[navController topViewController];
+        
+        // ensure that we (the friends controller) are notified when
+        // login is complete
+        loginController.delegate = self;
+        
+        
+    }
+    
 }
+
+- (void) loginTableViewControllerDidLogin:(UITableViewController *)controller{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
+
 
 
 @end
