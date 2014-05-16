@@ -53,4 +53,17 @@
 }
 */
 
+
+-(IBAction)tapDetected:(UITapGestureRecognizer *)sender{
+    
+    NSLog(@"Tapped!!!");
+    
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
+    
+}
+
+
+
+
+
 @end

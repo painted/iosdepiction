@@ -302,6 +302,15 @@
     
     NSLog(@"camera pressed!!");
  
+    /*      WORK ON THIS TO GET CAMERA OR PHOTO LIBRARY
+     Go to header adopt UIActionSheetDelegate
+     implement the delegate method
+     
+
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Type" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Photo Library", nil];
+    [actionSheet showInView:self.view];*/
+    
+    
     // create an instance of the camera view controller
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
